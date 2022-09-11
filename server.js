@@ -10,6 +10,26 @@ dotenv.config();
 /* create Express app */
 const app = express();
 
+//------Mongoose things------
+// Database
+const mongoose = require("mongoose");
+const user = process.env.ATLAS_USER;
+const password = process.env.ATLAS_PASSWORD;
+const db_url = `mongodb+srv://${user}:${password}@birdsofnz.mbvvhwc.mongodb.net/?retryWrites=true&w=majority`
+const options = {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+}
+mongoose.connect(db_url, options).then(() => {
+    console.log('Mongoose Successfully connected!')
+}).catch((e) => {
+    console.error(e, 'could not connect to Mongoose!')
+});
+
+
+
+//---------------------------
+
 /* setup Express middleware */
 // Pug for SSR (static site rendering)
 app.set('views', path.join(__dirname, 'views'));
