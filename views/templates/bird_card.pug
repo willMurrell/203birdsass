@@ -26,6 +26,12 @@ section(class='card')
             li
                 b Weight 
                 span=`${bird.size.weight.value} ${bird.size.weight.units}`
-
-        button() Edit Bird
-        button() Delete Bird
+            li
+                a(href=`/birds/${bird.id}`)
+                    button Go To Bird
+            li
+                a(href=`/birds/${bird.id}/update`)
+                    button Edit Bird
+            li
+                a(href=`/birds/${bird.id}/delete`)
+                    button Delete Bird

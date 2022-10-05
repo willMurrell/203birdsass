@@ -1,10 +1,9 @@
-const birds_json = require('../public/nzbird.json');
 const { bird_sort, search_string } = require('./bird_utils.js');
 
 // get all birds (filtered)
-function filter_bird_data(search, status, sort) {
-    // var results = birds;
-    var results = birds_json;
+function filter_bird_data(search, status, sort, birds) {
+    var results = birds;
+    
     
     // filter by conservation status 
     if (status !== undefined && status !== "All") {
@@ -21,5 +20,7 @@ function filter_bird_data(search, status, sort) {
     
     return results;
 }
+
+
 
 module.exports = { filter_bird_data };
